@@ -1,0 +1,60 @@
+<header class="container-fluid px-lg-2 bg-body border-bottom">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <!-- Site Brand and Name -->
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand p-0 me-2 d-flex align-items-center" href="/">
+          {% svg "brand/logo", "Site Logo", "bi cc-logo" %}
+          <span class="d-none d-lg-inline ms-2">{{ meta.siteName }}</span>
+        </a>
+      </div>
+
+      <!-- Navbar Toggler and Search Icon -->
+      <div class="d-flex align-items-center">
+        <!-- Search icon for mobile view -->
+        <a href="/search" class="btn d-flex d-lg-none me-2" aria-label="Search">
+          {% svg "ui/search" %}
+        </a>
+
+        <!-- Navbar Toggler -->
+        <button id="navbarToggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Navbar Collapse -->
+      <div id="navbarCollapse" class="collapse navbar-collapse flex-grow-1 justify-content-end align-items-center px-2 py-4 py-lg-0">
+        <!-- Search button (visible on LG and larger) -->
+        <a href="/search" class="btn d-none d-lg-flex me-2" aria-label="Search">
+          {% svg "ui/search" %}
+        </a>
+
+        <!-- Nav Links -->
+        <ul id="nav" class="navbar-nav ms-auto mb-2 mb-lg-0 pe-0 pe-lg-4 px-2 px-lg-0">
+          {%- for item in navigation.top -%}
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-between" href="{{ item.url }}" aria-current="page">
+                {{ item.text }}
+                <span class="ms-2 d-lg-none" aria-hidden="true">{% svg "ui/arrow-right" %}</span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <!-- Social Links -->
+        <ul class="navbar-nav d-flex flex-row flex-wrap justify-content-center align-items-center">
+          {%- for item in meta.socials -%}
+            <li class="nav-item">
+              <a href="{{ item.url }}" class="nav-link px-2" target="_blank" rel="noopener">
+                <span class="visually-hidden">{{ item.name }}</span>
+                {% assign iconName = item.icon %}
+                {% assign svgPath = 'social/' | append: iconName %}
+                {% svg svgPath %}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

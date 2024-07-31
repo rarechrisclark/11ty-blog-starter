@@ -1,0 +1,57 @@
+---
+layout: base
+---
+
+<div class="container">
+  <div class="row">
+
+    {% comment %}<-- Main Content -->{% endcomment %}
+    <div class="col-12 col-lg-8 order-1 order-lg-1">
+      {%- if pagination.pageNumber == 0 -%}
+        {% comment %}<!-- Content for the first page, which is accessed directly via /blog -->{% endcomment %}
+        {%- for item in pagination.items -%}
+          {% assign definedDate = item.date %}
+          {% include "partials/card-blog.liquid" %}
+        {%- endfor -%}
+      {%- else -%}
+        {% comment %}<!-- Content for subsequent pages -->{% endcomment %}
+        {%- for item in pagination.items -%}
+          {% assign definedDate = item.date %}
+          {% include "partials/card-blog.liquid" %}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {% comment %}<-- Pagination logic -->{% endcomment %}
+      {% assign collectionToPaginate = collections.allPosts %}
+      {%- if collectionToPaginate.size > pagination.size -%}
+        {% include 'partials/pagination.liquid' %}
+      {%- endif -%}
+    </div>
+
+    {% comment %}<-- Sidebar -->{% endcomment %}
+    <div class="col-12 col-lg-4 order-2 order-lg-2 mt-4 mt-lg-0">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <h3>About</h3>
+          <p>{{ description }}</p>
+        </div>
+        <div class="p-4 mt-5 border-top">
+          <h3>
+            {% svg "ui/tag-fill" %}
+            All Tags
+          </h3>
+          {% assign tagsToDisplay = collections.tagList %}
+          <p class="d-inline-flex justify-content-center flex-wrap gap-2">
+            {%- for tag in tagsToDisplay %}
+              {% if tag != "posts" %}
+                {% assign tagUrl = "/tags/" | append: tag | slugify | append: "/" %}
+                <a href="{{ tagUrl }}" class="btn btn-outline-primary btn-sm">{{ tag }}</a>
+              {% endif %}
+            {%- endfor %}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

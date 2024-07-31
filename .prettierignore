@@ -1,0 +1,4 @@
+src/**/*.md
+src/_includes/components/**/custom-*.liquid
+src/content/common/*
+src/_includes/scripts/*

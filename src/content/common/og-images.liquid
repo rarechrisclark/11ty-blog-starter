@@ -1,0 +1,87 @@
+---
+font: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+text: '#FBFBFB'
+colors: ['#EC5FA6', '#FEDE40']
+siteUrl: 'rareChrisClark.com'
+pagination:
+  data: collections.posts
+  size: 1
+  alias: post
+permalink: '/media/og-images/{{ post.data.title | slugify }}-preview.svg'
+eleventyExcludeFromCollections: true
+---
+
+<svg
+  id="visual"
+  viewBox="0 0 1200 630"
+  width="1200"
+  height="630"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+>
+
+<!-- SVG background, generate your own on: https://app.haikei.app/ or  https://pattern.monster/ -->
+  <rect x="0" y="0" width="1200" height="630" fill="{{ colors[0] }}"></rect>
+  <g transform="translate(489.4231951237623 247.81380468774358)">
+    <path
+      d="M143.4 -135C180.2 -106.5 200.6 -53.3 204.1 3.5C207.7 60.3 194.3 120.7 157.5 158.8C120.7 197 60.3 213 6.7 206.3C-46.9 199.6 -93.8 170.1 -138.8 132C-183.8 93.8 -226.9 46.9 -223.3 3.6C-219.8 -39.8 -169.6 -79.6 -124.6 -108.1C-79.6 -136.6 -39.8 -153.8 6.7 -160.5C53.3 -167.3 106.5 -163.5 143.4 -135"
+      fill="{{ colors[1] }}"
+    >
+    </path>
+  </g>
+
+  {% comment %} Global Variables {% endcomment %}
+  {% assign titleInLines = post.data.title | splitlines: 22 %}
+  {% assign numberOfLines = titleInLines | size %}
+  {% if numberOfLines == 1 %}
+    {% assign verticalStartingPoint = 340 %}
+  {% elsif numberOfLines == 2 %}
+    {% assign verticalStartingPoint = 290 %}
+  {% elsif numberOfLines == 3 %}
+    {% assign verticalStartingPoint = 250 %}
+  {% elsif numberOfLines == 4 %}
+    {% assign verticalStartingPoint = 210 %}
+  {% elsif numberOfLines == 5 %}
+    {% assign verticalStartingPoint = 170 %}
+  {% endif %}
+
+  <!-- date -->
+  <text
+    font-family="{{ font }}, sans-serif"
+    font-size="24"
+    font-weight="900"
+    fill="{{ text }}"
+    letter-spacing="-1"
+  >
+    <tspan x="160" y="{{ verticalStartingPoint | minus: 120 }}">
+      {{ post.date | date: '%d / %m / %Y' }}
+    </tspan>
+  </text>
+
+  <!-- title -->
+  <text
+    id="text"
+    font-family="{{ font }}, sans-serif"
+    font-size="80"
+    font-weight="900"
+    fill="{{ text }}"
+    letter-spacing="-3"
+  >
+    {% for line in titleInLines %}
+      <tspan x="160" y="{{ verticalStartingPoint | minus: 20 | plus: forloop.index0 | times: 85 }}"> {{ line }} </tspan>
+    {% endfor %}
+  </text>
+
+  <!-- Post Title / url -->
+  <text
+    font-family="{{ font }}, sans-serif"
+    font-size="28"
+    font-weight="500"
+    fill="{{ text }}"
+    letter-spacing="-0.5"
+  >
+    <!-- <tspan x="160" y="580">{{ meta.siteName }} · {{ meta.url | replace: 'https://', '' | replace: 'http://', '' }}</tspan> -->
+    <tspan x="160" y="580">{{ post.data.title }} | {{ siteUrl }}</tspan>
+  </text>
+</svg>

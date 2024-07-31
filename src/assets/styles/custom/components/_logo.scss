@@ -1,0 +1,26 @@
+.cc-logo {
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  transition: transform 0.5s, scale 0.5s;
+  &:hover {
+    transform: rotate(360deg) scale(1.1);
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(360deg) scale(1.1) translateX(0);
+  }
+  25% {
+    transform: rotate(360deg) scale(1.1) translateX(-2px);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.1) translateX(2px);
+  }
+  75% {
+    transform: rotate(360deg) scale(1.1) translateX(-1px);
+  }
+}

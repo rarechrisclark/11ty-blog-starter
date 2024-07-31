@@ -1,0 +1,19 @@
+---
+permalink: /tags/{{ tag }}/
+layout: page
+eleventyComputed:
+  title: '{{ tag }}'
+  description: 'Browse all articles tagged: {{ tag }}.'
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+---
+
+{% assign itemList = collections[tag] | reverse %}
+{%- for item in itemList -%}
+  {% assign definedDate = item.date %}
+  {% include "partials/card-blog.liquid" %}
+{%- endfor -%}
+
+<p class="text-center"><a href="/tags/" class="btn btn-outline-primary">View all tags</a></p>

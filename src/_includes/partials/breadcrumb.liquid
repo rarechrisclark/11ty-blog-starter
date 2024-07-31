@@ -1,0 +1,33 @@
+{% if page.url %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3">
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis" href="/">
+          {% svg "ui/house-door-fill" %}
+          <span class="visually-hidden">Home</span>
+        </a>
+      </li>
+      {% assign crumbs = page.url | split: '/' %}
+      {% assign cumulativePath = '' %}
+      {% for crumb in crumbs %}
+        {% if crumb != "" %}
+          {% assign cumulativePath = cumulativePath | append: '/' | append: crumb %}
+          {% if forloop.last %}
+            <li class="breadcrumb-item active" aria-current="page">
+              {{ crumb | capitalize }}
+            </li>
+          {% else %}
+            <li class="breadcrumb-item">
+              <a
+                class="link-body-emphasis fw-semibold text-decoration-none"
+                href="{{ cumulativePath }}/"
+              >
+                {{ crumb | capitalize }}
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

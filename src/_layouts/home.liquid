@@ -1,0 +1,33 @@
+---
+layout: base
+---
+
+{% comment %} Page Hero (intro) {% endcomment %}
+<div class="container">
+  <div class="py-5 text-center container border-bottom">
+    <div class="px-4 py-3 my-3 text-center">
+      <h1 class="display-3 fw-bolder">{{ title }}</h1>
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <p class="lead mb-4">{{ description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Latest Posts {% endcomment %}
+<div class="container">
+  <div class="py-3 my-3">
+    <h2 class="text-body-emphasis text-center">Latest Posts</h2>
+    <p class="text-center">These are my latest posts!</p>
+  </div>
+  <div class="row mb-2">
+    {% assign itemList = collections.allPosts %}
+    {% assign slicedItemList = itemList | slice: 0, 6 %}
+    {%- for item in slicedItemList %}
+      <div class="col-md-6 mb-4 d-flex">
+        {% assign definedDate = item.date %}
+        {% include "partials/card-home.liquid" %}
+      </div>
+    {%- endfor %}
+  </div>
+</div>

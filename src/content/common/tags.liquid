@@ -1,0 +1,20 @@
+---
+permalink: /tags/
+layout: page
+eleventyComputed:
+  title: 'Tags'
+  description: 'This is all the tags I have, click on one to see all the posts with that tag.'
+---
+
+<div class="container py-2 my-2">
+  <div class="d-flex justify-content-center flex-wrap gap-2">
+    {%- for tag in collections.tagList -%}
+      {% assign tagUrl = "/tags/" | append: tag | slugify | append: "/" %}
+      <a href="{{ tagUrl }}"
+         class="btn btn-outline-primary btn-sm{% if page.url == tagUrl %} active{% endif %}"
+         aria-pressed="{% if page.url == tagUrl %}true{% else %}false{% endif %}">
+        {{ tag }}
+      </a>
+    {%- endfor -%}
+  </div>
+</div>

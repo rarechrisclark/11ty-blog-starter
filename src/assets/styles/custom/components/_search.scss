@@ -1,0 +1,27 @@
+/* Styles for the form container */
+.cc-search-form {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  margin-bottom: 0; /* Ensure no extra margin is applied */
+}
+
+/* Styles for the search input */
+.cc-search-form-input {
+  width: 200px; /* Adjust width as needed */
+  padding: 0.5rem;
+  background: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.cc-search-form-input:focus {
+  outline: none;
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+}
+
+.cc-search-results {
+
+}

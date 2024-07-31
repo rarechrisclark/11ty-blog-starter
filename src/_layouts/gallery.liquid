@@ -1,0 +1,13 @@
+---
+layout: base
+---
+
+<div class="container">
+  <div class="row">
+    {%- for item in images -%}
+      <div class="col-md-4 mt-3 col-lg-4">
+        {% image item.src, item.alt %}
+      </div>
+      {%- endfor %}
+  </div>
+</div>

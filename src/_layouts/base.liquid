@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang }}" data-bs-theme="">
+<head>
+  <!-- 1 charset/viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 2 title -->
+  <title>
+    {%- if title -%}
+      {{- title -}}
+    {%- else -%}
+      {{- meta.siteName -}}
+    {%- endif -%}
+  </title>
+
+  <base href="{{ page.url }}" />
+
+  <!-- 3 synchronous js  -->
+  {% capture js %}
+    {% render "../assets/scripts/set-theme.js" %}
+  {% endcapture %}
+  <script>{{ js }}</script>
+
+  <!-- 4 schema settings -->
+  {% include "head/schema.liquid" %}
+
+  <!-- 5 CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+  <!-- 6 preloads  -->
+  {% include "head/preloads.liquid" %}
+
+  <!-- 7 meta tags, icons, open graph etc.  -->
+  {% include "head/meta-info.liquid" %}
+
+  <!-- 8 defer  -->
+  {% capture js %}
+    {% render "../assets/scripts/navbar.js" %}
+    {% if layout == "post" %}
+      {% render "../assets/scripts/toc.js" %}
+    {% endif %}
+  {% endcapture %}
+
+  <script defer>{{ js }}</script>
+
+</head>
+
+  <body>
+    {% include 'partials/header.liquid' %}
+    {% if page.url != "/" %}
+      <div class="container-fluid px-lg-5">
+          {% include 'partials/breadcrumb.liquid' %}
+      </div>
+    {% endif %}
+
+    {% if layout == 'post' %}
+      <div class="container-xxl cc-gutter gap-2 mt-3 my-md-4 cc-layout">
+        {{ content }}
+      </div>
+    {% else %}
+      <main class="container py-3 py-lg-5 my-3">
+        {{ content }}
+      </main>
+    {% endif %}
+
+  {% include 'partials/footer.liquid' %}
+  </body>
+</html>

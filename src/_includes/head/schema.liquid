@@ -1,0 +1,7 @@
+{% comment %} inline base schema {% endcomment %}
+{% include "schemas/base-schema.liquid" %}
+
+{% comment %} inline blogpost schema {% endcomment %}
+{% if schema == 'blog' %}
+  {%- include "schemas/blogpost-schema.liquid" -%}
+{% endif %}

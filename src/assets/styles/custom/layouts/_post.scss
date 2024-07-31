@@ -1,0 +1,50 @@
+@import "../../vendor/prism/prism-okaida";
+@import "../components/toc";
+
+.cc-gutter {
+  --bs-gutter-x: 3rem;
+}
+
+@media (min-width: 992px) {
+  .cc-layout {
+    display:grid;
+    grid-template-areas: "sidebar main";
+    grid-template-columns: 1fr 5fr;
+    gap: 1.5rem;
+  }
+}
+
+.cc-sidebar {
+  grid-area: sidebar;
+}
+
+.cc-main {
+  grid-area: main;
+}
+
+@media (max-width: 991.98px) {
+  .cc-main {
+    max-width:760px;
+    margin-inline:auto};
+}
+
+@media (min-width: 768px) {
+  .cc-main {
+    display:grid;
+    grid-template-areas: "intro" "toc" "content";
+    grid-template-rows: auto auto 1fr;
+    gap: inherit;
+  }
+}
+
+@media (min-width: 992px) {
+  .cc-main {
+    grid-template-areas:"intro toc" "content toc";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 4fr 1fr;
+  }
+}
+
+.cc-intro {
+  grid-area: intro;
+}

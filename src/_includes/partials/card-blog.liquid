@@ -1,0 +1,25 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <a class="link-underline link-underline-opacity-0 text-decoration-none" href="{{ item.url }}">
+      <h2 class="card-title">{{ item.data.title }}</h2>
+    </a>
+    <div class="text-muted mb-2">
+      <span slot="date">
+        {% include "partials/date.liquid" %}
+      </span>
+    </div>
+    {% assign tagsToDisplay = item.data.tags %}
+    <div class="mb-3">
+      <div class="d-inline-flex flex-wrap gap-2">
+        {%- for tag in tagsToDisplay %}
+          {% if tag != "posts" %}
+            {% assign tagUrl = "/tags/" | append: tag | slugify | append: "/" %}
+            <span class="badge bg-secondary text-decoration-none">{{ tag }}</span>
+          {% endif %}
+        {%- endfor %}
+      </div>
+    </div>
+    <p class="card-text">{{ item.data.summary }}</p>
+    {% include "partials/readmore.liquid" %}
+  </div>
+</div>

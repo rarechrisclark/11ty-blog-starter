@@ -1,0 +1,30 @@
+<footer class="container py-3 my-4 border-top">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+      <p class="mb-0 text-body-secondary">© 2024 {{ meta.siteName }}</p>
+    </div>
+
+    <div class="col-md-4 col-12 text-center mb-3 mb-md-0">
+      <div class="mode-switch d-inline-flex justify-content-center justify-content-md-end">
+        <button title="Use dark mode" id="dark" class="btn btn-sm btn-default text-body-secondary">
+          {% svg 'ui/moon-fill' %}
+        </button>
+        <button title="Use light mode" id="light" class="btn btn-sm btn-default text-body-secondary">
+          {% svg 'ui/sun-fill' %}
+        </button>
+        <button title="Use system preferred mode" id="system" class="btn btn-sm btn-default text-body-secondary">
+          {% svg 'ui/circle-half' %}
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-12 text-center text-md-end">
+      <ul class="nav justify-content-center justify-content-md-end">
+        <!-- Navigation Links -->
+        {%- for item in navigation.bottom -%}
+          <li class="nav-item"><a href="{{ item.url }}" class="nav-link px-2 text-body-secondary">{{ item.text }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</footer>

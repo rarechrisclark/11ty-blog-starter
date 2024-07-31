@@ -1,0 +1,27 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage"
+    },
+    "isPartOf": {
+      "@id": "{{ meta.url }}#website"
+    },
+    "@id": "{{ url }}",
+    "headline": "{% if title %}{{ title }}{% else %}{{ meta.siteName }}{% endif %}",
+    "description": "{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}",
+    "image": "{{ meta.url }}",
+    "inLanguage": "{{ meta.locale }}",
+    "publisher": {
+      "@type": "{{ meta.siteType }}",
+      "name": "{{ meta.author.name }}",
+      "url": "{{ meta.url }}"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "{{ meta.author.name }}"
+    },
+    "datePublished": "{{ date | toIsoString }}"
+  }
+</script>

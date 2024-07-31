@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  &:hover {
+    border-color: var(--bs-primary) !important;
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-body > div:first-child {
+  flex-grow: 1;
+}
+
+.card-body > div:last-child {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

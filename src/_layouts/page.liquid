@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+<div class="container pb-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-10 col-xl-8">
+      <h1 class="display-3 fw-bolder">{{ title | default: "Page" }}</h1>
+      {% if description %}<p class="lead">{{ description }}</p>{% endif %}
+      <hr>
+      {{ content }}
+    </div>
+  </div>
+</div>
