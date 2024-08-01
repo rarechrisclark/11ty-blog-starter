@@ -4,7 +4,7 @@ This repository was initially intended for my personal website, but I have since
 
 Despite this, I decided to make the repository public to support open-source learning. Enjoy exploring the code and features!
 
-Demo: https://3d19762c.rare-blog-starter.pages.dev
+**Demo:** [https://3d19762c.rare-blog-starter.pages.dev](https://rare-blog-starter.rarechrisclark.com)
 
 <img src="/screenshot.jpg?raw=true" alt="Rare Blog Starter" width="600" />
 
