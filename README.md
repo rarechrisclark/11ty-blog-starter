@@ -4,6 +4,8 @@ This repository was initially intended for my personal website, but I have since
 
 Despite this, I decided to make the repository public to support open-source learning. Enjoy exploring the code and features!
 
+Demo: https://3d19762c.rare-blog-starter.pages.dev
+
 ## Technologies Used
 
 - [11ty/eleventy](https://github.com/11ty/eleventy) is used for the static building (v3.0)
