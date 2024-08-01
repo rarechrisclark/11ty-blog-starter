@@ -25,7 +25,7 @@ export const searchIndex = (collection) => {
   const posts = collection.getFilteredByGlob('./src/content/posts/**/*.md').reverse();
 
   posts.forEach((item) => {
-    const url = item.url.includes('http') ? item.url : `https://rarechrisclark.com${item.url}`;
+    const url = item.url;
     searchIndex.push({
       id,
       url,
