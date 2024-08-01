@@ -1,8 +1,8 @@
-# blog-11ty-bootstrap
+# Rare - Blog Starter
 
-This was going to be my personal website, but I've decided to take the route of `Vitepress` as my framework for my blog.
+This repository was initially intended for my personal website, but I have since transitioned to using Vitepress for my blog.
 
-I was going to keep it as a private repository, but I decided to make it public so that others can learn from it. Open source is awesome!
+Despite this, I decided to make the repository public to support open-source learning. Enjoy exploring the code and features!
 
 ## Technologies Used
 
@@ -12,33 +12,49 @@ I was going to keep it as a private repository, but I decided to make it public 
 
 ## Features
 
-The assets are built in **under 10 seconds**... nice.
-
-- Light/Dark/System theme switcher - courtesy of [Building a Theme Switcher for Bootstrap 5.3+ | Alberto Roura](https://albertoroura.com/building-a-theme-switcher-for-bootstrap/)
-- Vanilla JS (minimal use)
-- Image processing and rendering with `srcset` for ZIPPY loading
-- Markdown IT processing of `.md` files
-- Pagination
-- Breadcrumbs
-- Local Search - indexed by [micpst/minisearch](https://github.com/micpst/minisearch)
+- Fast Build: Assets are built in **under 10 seconds**... nice!
+- Browser Friendly: Four hundos lighthouse score
+- Theme Switcher: Light/Dark/System theme switcher based on [Alberto Roura's guide](https://albertoroura.com/building-a-theme-switcher-for-bootstrap/).
+- Minimal Vanilla JS: Focus on minimal JavaScript usage.
+- Optimized Images: Image processing and rendering with `srcset` for fast loading.
+- Markdown Processing: Using [Markdown IT](https://github.com/markdown-it/markdown-it) for `.md` file processing.
+- Pagination and Breadcrumbs: For better navigation.
+- Local Search: Indexed by [MiniSearch](https://github.com/micpst/minisearch.
 
 ## Local Development
 
 1. Clone the repository
-2. Run `npm install` to install the dependencies
-3. Run `npm run dev` to start the local development server
-4. The server will be running at http://localhost:8080
+  ```shell
+  git clone https://github.com/rarechrisclark/rare-blog-starter.git
+  cd rare-blog-starter
+  ```
+2. Install dependencies
+```shell
+npm install
+```
 
-> Note:
+3. Start the local development server
+  ```shell
+  npm run dev
+  ```
+4. Access the server: The development server will be running at http://localhost:8080.
+
+Note:
 > - The 11ty configuration is located in the `./config` directory for better organisation
 > - The site metadata can be modified in the `./src/_data/meta.js`
 > - The final built assets will be stored in `./_site`
 
 ## Deployment
 
-This project has been set up to be built and hosted as a static site. It would be recommended to host on a service such as Cloudfare Pages, GitHub Pages, or in an AWS bucket.
+This project is set up to be built and hosted as a static site. Recommended hosting services include Cloudflare Pages, GitHub Pages, or AWS S3.
 
-1. When you are ready to deploy, simply run `npm run build` to package up the static assets, and you're good to go!
+1. Build the static assets
+```shell
+npm run build
+```
+
+2. Deploy the built assets to your chosen hosting service.
+3. Have fun with it x
 
 ---
 
