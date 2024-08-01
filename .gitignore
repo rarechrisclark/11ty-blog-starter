@@ -6,12 +6,6 @@ _site
 .cache
 .eslintcache
 
-# Posts
-#src/posts/**/*.md
-
-# Local development
-src/media/**/*
-
 # Environment variables
 .env
 
