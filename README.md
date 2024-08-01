@@ -6,6 +6,8 @@ Despite this, I decided to make the repository public to support open-source lea
 
 Demo: https://3d19762c.rare-blog-starter.pages.dev
 
+<img src="/screenshot.jpg?raw=true" alt="Rare Blog Starter" width="600" />
+
 ## Technologies Used
 
 - [11ty/eleventy](https://github.com/11ty/eleventy) is used for the static building (v3.0)
